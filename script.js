@@ -206,6 +206,30 @@ function selectFloor(floor) {
   document.getElementById("floorSelection").style.display = "none"; // เลือกแล้วซ่อนปุ่ม
   loadRooms();
 }
+function selectFloor(floor) {
+  selectedFloor = floor; // ⭐ ต้องเซ็ตค่า floor ที่เลือกด้วย
+  document.getElementById('floorSelection').style.display = 'none';
+  document.getElementById('roomContainer').innerHTML = '';
+  document.getElementById('backToFloorSelection').style.display = 'block';
+
+  // โหลดห้อง
+  loadRooms();
+}
+
+// ⭐ ฟังก์ชันเลือกห้องใหม่
+function selectRoom(roomNumber) {
+  selectedRoom = roomNumber; // ⭐ สำคัญ ต้องเซ็ต selectedRoom ด้วย
+  document.getElementById('selectedRoom').innerText = roomNumber;
+}
+
+function backToFloorSelection() {
+	selectedFloor = null; // รีเซ็ตชั้นที่เลือก
+	document.getElementById('floorSelection').style.display = 'block'; // แสดงปุ่มเลือกชั้นอีกครั้ง
+	document.getElementById('roomContainer').innerHTML = ''; // เคลียร์ห้องที่แสดงออก
+	document.getElementById('backToFloorSelection').style.display = 'none'; // ซ่อนปุ่มย้อนกลับ
+	document.getElementById('selectedRoom').innerText = 'None'; // รีเซ็ตข้อความห้องที่เลือก
+  }
+
 
 // แก้ loadRooms ให้โหลดเฉพาะชั้นที่เลือก
 async function loadRooms() {
@@ -269,6 +293,8 @@ async function clearAllBookings() {
     document.getElementById("status").innerText = "❌ Failed to clear bookings.";
   }
 }
+
+
 
 function disconnect() {
   signer = null;
