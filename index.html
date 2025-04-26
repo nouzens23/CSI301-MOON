@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>🏨 โรงแรมอาร์ท & Friend - Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease-in-out;
+      z-index: -1;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    .enter-button {
+      background-color: #b497e3;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .enter-button:hover {
+      background-color: #a27de0;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background" id="background"></div>
+
+  <section class="hero">
+    <h1>ยินดีต้อนรับสู่โรงแรมอาร์ท & Friend</h1>
+    <p>ประสบการณ์การพักผ่อนสุดพิเศษ พร้อมระบบจองห้องอัจฉริยะผ่านบล็อกเชน</p>
+    <a class="enter-button" href="index.html">🌟 เข้าสู่ระบบจองห้องพัก</a>
+  </section>
+
+  <script>
+    // รูปพื้นหลัง (ชื่อไฟล์รูปในเครื่อง)
+    const images = [
+      'hotel11.jpg',
+      'hotel22.jpg',
+      'hotel33.jpg'
+    ];
+
+    let currentIndex = 0;
+    const background = document.getElementById('background');
+
+    function changeBackground() {
+      background.style.backgroundImage = `url('${images[currentIndex]}')`;
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // เริ่มเปลี่ยนพื้นหลังทุก 5 วินาที
+    changeBackground();
+    setInterval(changeBackground, 5000);
+  </script>
+
+</body>
+</html>
