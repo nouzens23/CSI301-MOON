@@ -1,4 +1,4 @@
-const contractAddress = "0xeA0543f735D5fF0c261cE8Fc7203dE4BaE9E6427";
+const contractAddress = "0x7aE6a056BB72AA67282B68014514385bd4c6E060";
 const abi = [	{
 	"inputs": [],
 	"stateMutability": "nonpayable",
